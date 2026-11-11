@@ -1,48 +1,29 @@
+# CRM Automation: Google Form → HubSpot → Slack (Make.com)
 
-  <h1>🤖 CRM Automation – Google Form → HubSpot → Slack (via Make.com)</h1>
+A no-code lead-capture workflow built in **Make.com**. When someone submits a Google Form, the lead is created in HubSpot, a welcome email goes out, and the sales team gets an instant Slack alert. Nobody has to copy data by hand, and response time drops from hours to seconds.
 
-  <h2>📜 Project Overview</h2>
-  <p>
-    This project showcases a no-code CRM automation workflow using <strong>Make.com</strong>. When a user submits a <strong>Google Form</strong>, the lead data is automatically pushed to <strong>HubSpot CRM</strong> and an instant alert is sent to the relevant team on <strong>Slack</strong>. The goal is to improve lead management and response time without writing custom code.
-  </p>
+## Workflow
+```
+Google Form ─▶ Google Sheets (Watch Rows) ─▶ Send welcome email
+                                          ─▶ HubSpot: create contact
+                                          ─▶ Slack: notify sales channel
+```
 
-  <h2>✨ Features</h2>
-  <ul>
-    <li>📥 Collect leads via Google Forms</li>
-    <li>🔗 Automatically create/update contacts in HubSpot</li>
-    <li>🔔 Instantly notify team members on Slack</li>
-    <li>✅ No manual data entry required</li>
-    <li>📊 Centralized lead tracking and alerts</li>
-  </ul>
+| Step | Make module | What it does |
+|---|---|---|
+| 1 | Google Sheets – Watch Rows | Triggers on every new form response |
+| 2 | Email – Send an Email | Sends the lead a welcome email |
+| 3 | HubSpot CRM – Create Contact | Adds the lead to the CRM |
+| 4 | Slack – Create Message | Posts the new lead to the team channel |
 
-  <h2>🛠️ Tools & Services Used</h2>
-  <ul>
-    <li>📄 Google Forms – For capturing lead information</li>
-    <li>📊 Google Sheets – Stores form responses</li>
-    <li>⚙️ Make.com – For automation/integration</li>
-    <li>🧩 HubSpot – CRM where leads are stored</li>
-    <li>💬 Slack – Notification delivery to team channels</li>
-  </ul>
+## Use it
+1. In Make.com, create a new scenario → **⋯ → Import Blueprint** → choose [`make-scenario-blueprint.json`](make-scenario-blueprint.json).
+2. Reconnect your own Google Sheets, email, HubSpot and Slack connections.
+3. Point the Sheets module at your form's response sheet, then set the Slack channel and email recipient.
+4. Turn the scenario on.
 
-  <h2>🚀 Workflow on Make.com</h2>
-  <ol>
-    <li>Trigger: New row added in Google Sheet from Form submission</li>
-    <li>Action: Create or update a contact in HubSpot</li>
-    <li>Action: Send formatted notification message to a Slack channel</li>
-  </ol>
+## Tools
+Make.com · Google Forms · Google Sheets · HubSpot CRM · Slack
 
-  <h2>📁 Structure</h2>
-  <pre>
-make-crm-automation/
-├── Google Form (linked to Google Sheet)
-├── Make Scenario:
-│   ├── Google Sheets Watch Rows
-│   ├── HubSpot Create/Update Contact
-│   └── Slack Send Message
-├── README.html
-  </pre>
-
-  <h2>🔐 Notes</h2>
-  <p>
-    Make.com handles authentication securely via connected services. All scenarios are set to run automatically on new form entries, reducing delays in response.
-  </p>
+## License
+MIT, see [LICENSE](LICENSE).
